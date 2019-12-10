@@ -5,32 +5,31 @@
 //
 
 function bubbleSort(array) {
-
-  // let count = 0
-  // while (count < array.length) {
-  //   array = swap(array)
-  //   count++
-  // }
-
+  let length = array.length
+  let result = []
+  while (result.length < length) {
+    array = swap(array)
+    result.unshift(array.pop())
+    console.log('result:', result)
+  }
+  return result
 }
 
 function swap(array){
   console.log('inputArr', array)
-  let sortedArr = []
   let i = 0
   while (i < array.length-1) {
-    //console.log('comparing', array[i], 'and', array[i+1])
-    if (array[i] > array[i+1]) {
-      sortedArr.push(array[i+1])
-      sortedArr.push(array[i])
-      i++
-    } else {
-      sortedArr.push(array[i])
+    console.log('comparing', array[i], 'and', array[i+1])
+    const current = array[i]
+    const next = array[i+1]
+    if (current > next) {
+      array[i] = next
+      array[i+1] = current
     }
     i++
   }
 
-  console.log('swapped array:', sortedArr)
-  return sortedArr
+  console.log('swapped array:', array)
+  return array
 
 }
