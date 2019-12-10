@@ -8,21 +8,29 @@ function split(wholeArray) {
   // [38,27]
   // firstHalf = 38
   // lastHalf = 27
-  console.log(wholeArray, firstHalf, secondHalf)
+  // console.log('wholearray', wholeArray, 'firsthalf', firstHalf, 'secondhalf', secondHalf)
   return merge(split(firstHalf), split(secondHalf));
 }
 
 function merge(firstHalf, secondHalf) {
   // sort elements
+  let tempArr = []
+  console.log('first half length outside while', firstHalf.length, 'secondhalf length outside while', secondHalf.length)
 
-  if (firstHalf[0] < secondHalf[0]) {
-    console.log('merge:',[...firstHalf, ...secondHalf])
-    return [...firstHalf, ...secondHalf]
-  } else {
-    console.log('merge:',[...secondHalf, ...firstHalf])
-    return [...secondHalf, ...firstHalf]
+  while (firstHalf.length > 0 || secondHalf.length > 0) {
+    // if (firstHalf.length === 1 && secondHalf.length === 1) { return tempArr }
+    if (firstHalf[0] < secondHalf[0]) {
+      // console.log('merge:',[...firstHalf, ...secondHalf])
+      tempArr.push(firstHalf.shift())
+      // return [...firstHalf, ...secondHalf]
+    } else {
+      // console.log('merge:',[...secondHalf, ...firstHalf])
+      tempArr.push(secondHalf.shift())
+
+      // return [...secondHalf, ...firstHalf]
+    }
   }
-
+  console.log('first from merge', firstHalf, 'second from merge', secondHalf, 'temparr', tempArr, 'firsthalf length after while', firstHalf.length, 'secondhalf length after while', secondHalf.length)
 }
 
 split([4,7,1,0,2])
