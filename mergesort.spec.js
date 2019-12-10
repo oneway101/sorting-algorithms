@@ -12,9 +12,21 @@ const sortedOddArr = [0,1,2,4,7]
 //   });
 // });
 
-// describe('Merge function', function(){
-//   it('is able to merge two sorted arrays into one sorted array', function(){
-//     // test the merging algorithm
-//     expect(merge(oddArrFirstHalf,oddArrLastHalf)).toEqual(sortedOddArr)
-//   });
-// });
+describe('Merge function', function(){
+  it('is able to merge two sorted arrays into one sorted array', function(){
+    // test the merging algorithm
+    expect(merge(oddArrFirstHalf,oddArrLastHalf)).toEqual(sortedOddArr)
+  });
+});
+
+describe('MergeSort function', function(){
+  it('is able to return a sorted array', function(){
+    // test the merging algorithm
+    expect(mergeSort(oddArr)).toEqual(sortedOddArr)
+  });
+  it('is able to return a sorted array with negative integers', function(){
+    // test the merging algorithm
+    expect(mergeSort([-3, 8, 7, 6, 5, -4, 3, 2, 1 ])).toEqual([-4,-3,1,2,3,5,6,7,8])
+  });
+});
+
